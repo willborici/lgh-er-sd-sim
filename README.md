@@ -5,3 +5,4 @@ Earlier in 02024, I visited the Lions Gate Hospital ER and observed some basic d
 
 My goal here is to add to the model, simulate and observe them for strategic recommendations. I'll be using PySD (but could have opted for R's deSolve -- open to collaborate with anyone either way).
 
+Necessary packages: pip install pysd numpy matplotlib
