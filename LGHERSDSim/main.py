@@ -32,7 +32,7 @@ def simulate_er(simulation_time, nurse_efficiency):
         physicians_on_duty.add_physician(Doctor(f"Doctor {i + 1}", specialty="General"))
 
     # Initialize patients -- can change severity to a random dist between 1 and 10
-    for _ in range(290):
+    for _dummy in range(290):
         patients_waiting.add_patient(Patient(arrival_time=0, severity=5))
 
     for time in range(simulation_time):
@@ -54,14 +54,16 @@ def simulate_er2(num_patients2, er_capacity2, simulation_time2):
     # TODO: update patient arrival time based on LGH observed distribution:
     patients2 = ([Patient(arrival_time=np.random.randint(0, simulation_time2),
                   severity=np.random.randint(1, 10))
-                  for _ in range(num_patients2)])
+                  for _dummy in range(num_patients2)])
 
     for time in range(simulation_time2):
         for patient in patients2:
             if patient.arrival_time == time:
                 admitted = er.admit_patient(patient)
                 if admitted:
-                    patient.set_treatment_time(time + np.random.randint(1, 10))  # Random treatment time
+                    # Random treatment time
+                    # TODO: update per corresponding differential equation
+                    patient.set_treatment_time(time + np.random.randint(1, 10))
                 else:
                     print(f"Patient {patient} could not be admitted at time {time}")
 

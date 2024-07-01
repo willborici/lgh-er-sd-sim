@@ -1,5 +1,5 @@
 # Generic class to capture any stock object in a stock-and-flow model
-# The stock has a name and a non-negative amount
+# The stock has a name and a non-negative integer amount
 
 class Stock:
     def __init__(self, name, initial_value=0):
